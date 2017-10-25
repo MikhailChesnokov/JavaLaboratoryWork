@@ -1,20 +1,20 @@
+package III._1_Collections;
+
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.lang.System.out;
+public class Solver {
 
-public class Main {
+    public static void main() {
 
-    public static void main(String[] args) {
         // Task A - create an array
-        int[] array = new int[] {5,2,1,4,2,3};
+        Integer[] array = new Integer[] {5,2,1,4,2,3};
 
         // Task B - create List, based on the array created above
-        List<Integer> list = new LinkedList<>();
-        for (int num: array)
-            Collections.addAll(list,num);
+        List<Integer> list = Arrays.asList(array);
         printList("Initial list:",list);
 
         // C - sort ascending
@@ -22,7 +22,7 @@ public class Main {
         printList("Sorted ascending:",list);
 
         // D - sort descending
-        Collections.sort(list, (n1, n2) -> n2 - n1);
+        Collections.sort(list, (x, y) -> y - x);
         printList("Sorted descending:",list);
 
         // Task E - shuffle
@@ -42,20 +42,21 @@ public class Main {
         Collections.addAll(list,2,2,2,3,3,5);
         // Secondly, remove unique
         List<Integer> finalList = list;
-        list = list.stream().filter(elem -> finalList.lastIndexOf(elem) > finalList.indexOf(elem)).collect(Collectors.toList());
+        list = list.stream().filter(x -> finalList.lastIndexOf(x) != finalList.indexOf(x)).collect(Collectors.toList());
         printList("Duplicates only:",list);
 
         // Task I - convert list to array
         Integer[] finalArray = list.stream().toArray(Integer[]::new);
-        out.print("The final array: ");
+        System.out.print("The final array: ");
         for (Integer num : finalArray)
-            out.print(num + " ");
+            System.out.print(num + " ");
+        System.out.println('\n');
     }
 
-    private static void printList(String task, List<Integer> list) {
-        out.print(task + " ");
+    private static void printList(String message, Collection<Integer> list) {
+        System.out.print(message + " ");
         for(Integer number : list)
-            out.print(number + " ");
-        out.println();
+            System.out.print(number + " ");
+        System.out.println();
     }
 }
