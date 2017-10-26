@@ -1,4 +1,4 @@
-package III._2_Primes;
+package Lab_III._2_Primes;
 
 import java.util.Iterator;
 
@@ -20,7 +20,7 @@ public class PrimesGenerator implements Iterable<Integer> {
 
             public Integer next() {
                 while (!isPrime(from < to ? current++ : current--));
-                return current - 1;
+                return from < to ? current - 1 : current + 1;
             }
 
             private boolean isPrime(int number)
@@ -29,7 +29,7 @@ public class PrimesGenerator implements Iterable<Integer> {
                 if (number < 2) return false;
                 if (number < 4) return true;
                 if (number % 2 == 0) return false;
-                for (int i = 3; i < Math.ceil(Math.sqrt(number)); i+=2)
+                for (int i = 3; i < Math.sqrt(number) + 1; i+=2)
                     if (number % i == 0) return false;
                 return true;
             }

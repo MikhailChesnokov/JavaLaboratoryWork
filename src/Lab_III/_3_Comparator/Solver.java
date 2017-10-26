@@ -1,4 +1,4 @@
-package III._3_Comparator;
+package Lab_III._3_Comparator;
 
 import java.util.Collection;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package III._2_Primes;
+package Lab_III._2_Primes;
 
 public class Solver {
     public static void main() {

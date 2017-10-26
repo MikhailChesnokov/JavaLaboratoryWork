@@ -1,4 +1,4 @@
-package III._1_Collections;
+package Lab_III._1_Collections;
 
 import java.util.Arrays;
 import java.util.Collection;

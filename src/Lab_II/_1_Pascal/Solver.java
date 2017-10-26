@@ -1,14 +1,14 @@
-package II._1_Pascal;
+package Lab_II._1_Pascal;
 
 import javafx.util.Pair;
 import java.util.HashMap;
 
 public class Solver {
-
-    private static HashMap<Pair<Integer,Integer>, Integer> combinationsCache = new HashMap<>();
+    static HashMap<Pair<Integer,Integer>, Integer> combinationsCache = new HashMap<>();
+    static int n = 6;
 
     public static void main() {
-        for (int i = 1; i <= 6; i++,System.out.println())
+        for (int i = 1; i <= n; i++,System.out.println())
             for (int j = 1; j <= i; j++)
                 System.out.print(combinations(new Pair(i,j)) + " ");
     }
