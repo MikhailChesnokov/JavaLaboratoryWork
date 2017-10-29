@@ -4,14 +4,16 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Solver {
 
     public static void main() {
 
         // Task A - create an array
-        Integer[] array = new Integer[] {5,2,1,4,2,3};
+        Integer[] array = IntStream.generate(() -> ThreadLocalRandom.current().nextInt(10)).limit(7).boxed().toArray(Integer[]::new);
 
         // Task B - create List, based on the array created above
         List<Integer> list = Arrays.asList(array);
@@ -39,7 +41,7 @@ public class Solver {
 
         // Task H - duplicates only
         // Firstly, Add few duplicates
-        Collections.addAll(list,2,2,2,3,3,5);
+        Collections.addAll(list,2,2,2,3,3,5,5);
         // Secondly, remove unique
         List<Integer> finalList = list;
         list = list.stream().filter(x -> finalList.lastIndexOf(x) != finalList.indexOf(x)).collect(Collectors.toList());

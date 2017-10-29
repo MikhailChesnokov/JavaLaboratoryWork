@@ -1,9 +1,10 @@
 package Lab_III._2_Primes;
 
 import java.util.Iterator;
+import java.util.stream.IntStream;
 
 public class PrimesGenerator implements Iterable<Integer> {
-    int from, to;
+    private final int from, to;
 
     public PrimesGenerator(int from, int to) {
         this.from = from;
@@ -15,23 +16,14 @@ public class PrimesGenerator implements Iterable<Integer> {
             int current = from;
 
             public boolean hasNext() {
-                return from < to ? current < to : current > to;
+                return from < to ? ++current < to : --current > to;
             }
 
             public Integer next() {
-                while (!isPrime(from < to ? current++ : current--));
-                return from < to ? current - 1 : current + 1;
-            }
-
-            private boolean isPrime(int number)
-            {
-                number = Math.abs(number);
-                if (number < 2) return false;
-                if (number < 4) return true;
-                if (number % 2 == 0) return false;
-                for (int i = 3; i < Math.sqrt(number) + 1; i+=2)
-                    if (number % i == 0) return false;
-                return true;
+                return current = IntStream
+                        .iterate(current, i -> from < to ? ++i : --i)
+                        .filter(number -> number > 1 && IntStream.range(2, (int)Math.sqrt(number) + 1).noneMatch(x -> number % x == 0))
+                        .findFirst().getAsInt();
             }
         };
     }
