@@ -48,7 +48,7 @@ public class Solver {
         printList("Duplicates only:",list);
 
         // Task I - convert list to array
-        Integer[] finalArray = list.stream().toArray(Integer[]::new);
+        Integer[] finalArray = list.toArray(new Integer[0]);
         System.out.print("The final array: ");
         for (Integer num : finalArray)
             System.out.print(num + " ");

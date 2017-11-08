@@ -64,8 +64,7 @@ public class Solver {
     }
 
     public static void traverseThirdWay(int col) {
-        if (col > n) return;
-        else
+        if (col <= n) {
             if (col % 2 == 0) {
                 for (int row = n; row > 0; row--)
                     array[row][col] = value++;
@@ -76,5 +75,6 @@ public class Solver {
                     array[i][col] = value++;
                 traverseThirdWay(++col);
             }
+        }
     }
 }
