@@ -1,7 +1,6 @@
 package Lab_IV;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 class Bank {
     List<Client> clients = new ArrayList<>();
@@ -15,14 +14,13 @@ class Bank {
             if (sender.deposit >= amount) {
                 sender.deposit -= amount;
                 withdrawn = true;
-            } else {
-                System.out.println("Cannot withdraw from " + senderName);
             }
         }
-        if (withdrawn)
+        if (withdrawn) {
             synchronized (receiver) {
                 receiver.deposit += amount;
             }
+        }
     }
 
     int getMoneyOfAllClients() {

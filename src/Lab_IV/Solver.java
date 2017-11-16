@@ -1,8 +1,6 @@
 package Lab_IV;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Solver {
     private static final int totalClients = 100, totalThreads = 1000, transfersPerThread = 1000, maxTransferSum = 5000;
@@ -14,6 +12,9 @@ public class Solver {
         for (int i = 0; i < totalClients; i++) {
             bank.clients.add(new Client("Client " + i));
         }
+
+        // Print total amount of money of all clients before transfers
+        System.out.println("Total amount of money of all clients (before transfers): " + bank.getMoneyOfAllClients());
 
         // Create threads
         List<Thread> threads = new ArrayList<>();
@@ -28,19 +29,21 @@ public class Solver {
                     }
             ));
 
-        // Start all
-        threads.forEach(Thread::start);
+        // Start all the threads
+        for (Thread thread : threads) {
+            thread.start();
+        }
 
         // Wait for all the threads to finish
         for (Thread thread : threads) {
             try {
                 thread.join();
-            } catch (InterruptedException ignored) { }
+            } catch (InterruptedException e) {
+                System.out.println("Cannot join the thread because it's interrupted: " + e.getMessage());
+            }
         }
 
-        // Print sum of money for all clients (in separated thread)
-        Thread sumThread = new Thread(
-                () -> System.out.println("Total: " +  bank.getMoneyOfAllClients()));
-        sumThread.start();
+        // Print total amount of money of all clients after transfers
+        System.out.println("Total amount of money of all clients (after transfers): " +  bank.getMoneyOfAllClients());
     }
 }
