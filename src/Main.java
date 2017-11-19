@@ -1,7 +1,7 @@
-import Lab_II._1_Pascal.Solver;
-
 public class Main {
     public static void main(String[] args) {
+        Lab_I.Solver.main();
+
         Lab_II._1_Pascal.Solver.main();
         Lab_II._2_Traverse.Solver.main();
 
