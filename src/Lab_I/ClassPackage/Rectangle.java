@@ -1,7 +1,12 @@
 package Lab_I.ClassPackage;
 
 public class Rectangle extends Point {
-    private double width = 1, height = 1;
+    private double width, height;
+
+    {
+        width = 1;
+        height = 1;
+    }
 
     public Rectangle(double centerCoordinateX, double centerCoordinateY, double width, double height) {
         super(centerCoordinateX, centerCoordinateY);

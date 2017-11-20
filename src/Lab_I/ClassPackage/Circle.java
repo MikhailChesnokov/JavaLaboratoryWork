@@ -1,7 +1,11 @@
 package Lab_I.ClassPackage;
 
 public class Circle extends Point {
-    private double radius = 1;
+    private double radius;
+
+    {
+        radius = 1;
+    }
 
     public Circle(double centerCoordinateX, double centerCoordinateY, double radius) {
         super(centerCoordinateX, centerCoordinateY);
