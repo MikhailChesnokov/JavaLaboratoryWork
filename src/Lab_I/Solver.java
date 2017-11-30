@@ -1,11 +1,13 @@
 package Lab_I;
 
+// 4. Using two packages
 import Lab_I.ClassPackage.*;
 import Lab_I.InterfacePackage.*;
 import java.util.*;
 
 public class Solver {
     public static void main() {
+        // 3. Link to interface "AreaCalculable" and use interface method "getArea"
         List<AreaCalculable> someShapes = Arrays.asList(
                 new Point(),
                 new Point(0,0),

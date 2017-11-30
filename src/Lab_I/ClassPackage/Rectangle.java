@@ -3,6 +3,7 @@ package Lab_I.ClassPackage;
 public class Rectangle extends Point {
     private double width, height;
 
+    // 6. Initializer
     {
         width = 1;
         height = 1;
@@ -19,6 +20,7 @@ public class Rectangle extends Point {
         }
     }
 
+    // 1. Overridden method
     @Override
     public double getArea() {
         return getWidth() * getHeight();

@@ -5,6 +5,7 @@ import Lab_I.InterfacePackage.AreaCalculable;
 public class Point implements AreaCalculable {
     private double coordinateX, coordinateY;
 
+    // 2. Overloaded methods
     public Point() {
         this.coordinateX = this.coordinateY = 0;
     }
@@ -18,6 +19,7 @@ public class Point implements AreaCalculable {
         return 0;
     }
 
+    // 5. static method
     static boolean isPositiveRealNumber(double value) {
         return Double.isFinite(value) && (value > 0);
     }

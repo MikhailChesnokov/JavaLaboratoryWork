@@ -3,6 +3,7 @@ package Lab_I.ClassPackage;
 public class Circle extends Point {
     private double radius;
 
+    // 6. Initializer
     {
         radius = 1;
     }
@@ -22,6 +23,7 @@ public class Circle extends Point {
         return Math.PI * Math.pow(getRadius(), 2);
     }
 
+    // 7. Get and Set methods
     public double getRadius() {
         return radius;
     }
